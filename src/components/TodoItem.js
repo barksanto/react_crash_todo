@@ -17,7 +17,10 @@ export class TodoItem extends Component {
       // inline style uses double curlybraces {{ backgroundColor: '#f4f4f4' }}
       // but in this case we use a variable - which only needs one pair of braces {itemStyle}
       <div style={this.getStyle()}>
-        <p>{this.props.todo.title}</p>
+        <p>
+          <input type="checkbox" />{' '}
+          {this.props.todo.title}
+        </p>
       </div>
     )
   }
