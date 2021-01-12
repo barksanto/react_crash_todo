@@ -35,12 +35,20 @@ class App extends Component {
       })
     });
   }
+
+  // delete Todo
+  delTodo = (id) => {
+    // using filter method to find the todo by id
+    this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] })
+  }
   // todos come from the state of app js and we pass it down with props with this.props
   render() {
-    console.log(this.props.todos);
     return (
       <div className="App">
-        <Todos todos={this.state.todos} markComplete={this.markComplete} />
+        <Todos
+          todos={this.state.todos}
+          markComplete={this.markComplete}
+          delTodo={this.delTodo} />
       </div>
     );
   }

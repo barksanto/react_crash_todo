@@ -24,6 +24,7 @@ export class TodoItem extends Component {
         <p>
           <input type="checkbox" onChange={this.props.markComplete.bind(this, id)} />{' '}
           {title}
+          <button onClick={this.props.delTodo.bind(this, id)} style={btnStyle}>X</button>
         </p>
       </div>
     )
@@ -31,8 +32,18 @@ export class TodoItem extends Component {
 }
 
 // TodoItem - first thing should be the name of the class
-TodoItem.propTypes = {
-  todos: PropTypes.object.isRequired
+// TodoItem.propTypes = {
+//   todos: PropTypes.object.isRequired
+// }
+
+const btnStyle = {
+  background: '#ff0000',
+  color: 'white',
+  border: '2px solid black',
+  padding: '5px 10px',
+  borderRadius: '50%',
+  cursor: 'pointer',
+  float: 'right'
 }
 
 // const itemStyle = {
