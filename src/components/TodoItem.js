@@ -12,14 +12,18 @@ export class TodoItem extends Component {
     }
   }
 
+  //when we make a method like this , it takes an event parameter
+
+
   render() {
+    const { id, title } = this.props.todo;
     return (
       // inline style uses double curlybraces {{ backgroundColor: '#f4f4f4' }}
       // but in this case we use a variable - which only needs one pair of braces {itemStyle}
       <div style={this.getStyle()}>
         <p>
-          <input type="checkbox" />{' '}
-          {this.props.todo.title}
+          <input type="checkbox" onChange={this.props.markComplete.bind(this, id)} />{' '}
+          {title}
         </p>
       </div>
     )
