@@ -46,7 +46,12 @@ class App extends Component {
 
   //add todo
   addTodo = (title) => {
-    console.log(title);
+    const newTodo = {
+      id: 4,
+      title: title, // can just write title instead because the key and value are the same
+      completed: false
+    }
+    this.setState({ todos: [...this.state.todos, newTodo] })
   }
 
   // todos come from the state of app js and we pass it down with props with this.props
