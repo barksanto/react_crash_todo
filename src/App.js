@@ -5,7 +5,7 @@ import Todos from './components/Todos';
 import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
 import About from './components/pages/About';
-import uuid from 'uuid';
+// import uuid from 'uuid';
 import axios from 'axios';
 
 
@@ -40,12 +40,17 @@ class App extends Component {
 
   //add todo
   addTodo = (title) => {
-    const newTodo = {
-      id: uuid.v4(),
-      title: title, // can just write title instead because the key and value are the same
+    axios.post('https://jsonplaceholder.typicode.com/todos', {
+      title,
       completed: false
-    }
-    this.setState({ todos: [...this.state.todos, newTodo] })
+    })
+      .then(res => this.setState({ todos: [...this.state.todos, res.data] }));
+    // const newTodo = {
+    //   id: uuid.v4(),
+    //   title: title, // can just write title instead because the key and value are the same
+    //   completed: false
+    // }
+
   }
 
   // todos come from the state of app js and we pass it down with props with this.props
