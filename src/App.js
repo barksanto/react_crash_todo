@@ -43,13 +43,19 @@ class App extends Component {
     // using filter method to find the todo by id
     this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] })
   }
+
+  //add todo
+  addTodo = (title) => {
+    console.log(title);
+  }
+
   // todos come from the state of app js and we pass it down with props with this.props
   render() {
     return (
       <div className="App">
         <div className="container">
           <Header />
-          <AddTodo />
+          <AddTodo addTodo={this.addTodo} />
           <Todos
             todos={this.state.todos}
             markComplete={this.markComplete}

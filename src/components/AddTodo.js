@@ -5,13 +5,19 @@ export class AddTodo extends Component {
     title: ''
   }
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.addTodo(this.state.title);
+    this.setState({ title: '' });
+  }
+
   //the state is in THIS COMPONENT thats why we can do this fn here
   //setting the title to whatever we type in
-  onChange = (e) => this.setState({ title: e.target.value });
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   render() {
     return (
-      <form style={{ display: 'flex' }}>
+      <form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
         <input
           style={{ flex: '10', padding: '5px' }}
           type="text"
